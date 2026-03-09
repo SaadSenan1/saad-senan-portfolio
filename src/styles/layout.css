@@ -24,6 +24,24 @@ html, body {
   will-change: transform;
 }
 
+/* COLLAPSED STATE (95px) */
+.layout .main-content {
+  transform: translateX(95px);
+}
+
+/* OPEN STATE (260px) */
+.layout.sidebar-open .main-content {
+  transform: translateX(260px);
+}
+
+/* RTL SUPPORT */
+html.rtl .layout .main-content {
+  transform: translateX(-95px);
+}
+
+html.rtl .layout.sidebar-open .main-content {
+  transform: translateX(-260px);
+}
 
 /* =========================
    RESPONSIVE: MOBILE & TABLET
