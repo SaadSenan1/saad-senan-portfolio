@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import cvFile from "../assets/cv.pdf";
 import { TypeAnimation } from "react-type-animation";
 import { LanguageContext } from "../context/LanguageContext";
+import profileImg from "../assets/profile.jpg";
 import project1Img from "../assets/project1.jpg";
 import MobileHeader from "../components/MobileHeader";
 import project2Img from "../assets/project2.jpg";
@@ -81,7 +82,7 @@ const Home = () => {
             </span>
 
             <div className="mobile-profile">
-              <img src="src/assets/profile.jpg" alt={t.hero.name} />
+              <img src={profileImg} alt={t.hero.name} />
             </div>
 
             <h1>
