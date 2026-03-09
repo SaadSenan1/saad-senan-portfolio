@@ -1,0 +1,155 @@
+/* ===== MOBILE HEADER ===== */
+
+.mobile-header{
+
+position:fixed;
+
+top:12px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+max-width:320px;
+
+height:55px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 16px;
+
+border-radius:18px;
+
+/* Dark mode default */
+
+background:rgba(20,30,60,0.45);
+
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,0.35),
+inset 0 1px 0 rgba(255,255,255,0.05);
+
+z-index:9999;
+
+transition:.3s;
+
+}
+
+/* ===== LIGHT MODE ===== */
+
+.light .mobile-header{
+
+background:rgba(240,240,245,0.55);
+
+border:1px solid rgba(0,0,0,0.08);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.12),
+inset 0 1px 0 rgba(255,255,255,0.7);
+
+}
+
+/* ===== LOGO ===== */
+
+.mobile-logo{
+
+font-weight:600;
+font-size:14px;
+
+color:#3b82f6;
+
+letter-spacing:1px;
+
+}
+
+/* ===== ACTIONS ===== */
+
+.mobile-actions{
+
+display:flex;
+gap:10px;
+
+}
+
+/* ===== BUTTON ===== */
+
+.mobile-btn{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:36px;
+height:36px;
+
+border-radius:10px;
+
+border:none;
+
+background:rgba(59,130,246,0.1);
+
+color:#60a5fa;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+/* ===== LIGHT MODE BUTTON ===== */
+
+.light .mobile-btn{
+
+background:rgba(0,0,0,0.05);
+
+color:#2563eb;
+
+}
+
+/* ===== HOVER ===== */
+
+.mobile-btn:hover{
+
+background:rgba(59,130,246,0.25);
+
+transform:translateY(-2px) scale(1.05);
+
+box-shadow:0 0 10px rgba(59,130,246,0.4);
+
+color:#93c5fd;
+
+}
+
+/* ===== CLICK ===== */
+
+.mobile-btn:active{
+
+transform:scale(.92);
+
+}
+
+/* ===== RTL ===== */
+
+.mobile-header.rtl{
+
+direction:rtl;
+
+}
+
+/* ===== MOBILE ONLY ===== */
+
+@media(min-width:768px){
+
+.mobile-header{
+display:none;
+}
+
+}
