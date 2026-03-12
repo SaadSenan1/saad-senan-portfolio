@@ -500,6 +500,9 @@ const Home = () => {
   </div>
 </section>
         <div className="view-all-projects">
+          <p className="view-all-hint">
+    {isArabic ? "تريد ان ترى المزيد؟" : "Want to see more?"}
+  </p>
   <a 
     href="https://github.com/saadsenan1" 
     target="_blank" 

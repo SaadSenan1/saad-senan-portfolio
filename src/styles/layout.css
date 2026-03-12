@@ -2,13 +2,6 @@
    LAYOUT BASE
 ========================================= */
 
-.layout {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 html, body {
   height: auto;
   min-height: 100%;
@@ -16,82 +9,81 @@ html, body {
   overflow-y: auto;
 }
 
-/* MAIN CONTENT */
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
 .main-content {
   flex: 1;
   min-height: 100vh;
-  transition: transform 0.4s cubic-bezier(0.77,0,0.175,1);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   will-change: transform;
 }
 
-/* COLLAPSED STATE (95px) */
+/* Sidebar collapsed (95px) */
 .layout .main-content {
   transform: translateX(95px);
 }
 
-/* OPEN STATE (260px) */
+/* Sidebar open (260px) */
 .layout.sidebar-open .main-content {
   transform: translateX(260px);
 }
 
-/* RTL SUPPORT */
-html.rtl .layout .main-content {
+/* =========================================
+   RTL SUPPORT
+========================================= */
+
+html[dir="rtl"] .layout .main-content {
   transform: translateX(-95px);
 }
 
-html.rtl .layout.sidebar-open .main-content {
+html[dir="rtl"] .layout.sidebar-open .main-content {
   transform: translateX(-260px);
 }
 
-/* =========================
-   RESPONSIVE: MOBILE & TABLET
-========================= */
+/* =========================================
+   MOBILE & TABLET (max 768px)
+========================================= */
+
 @media (max-width: 768px) {
 
-  /* Hide sidebar but allow mobile menu */
-  .sidebar,
-  .sidebar * {
+  /* إخفاء الـ sidebar كاملاً */
+  .sidebar {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
   }
 
-  /* Reset main content transform for mobile */
+  /* إلغاء الـ transform على الـ main content */
   .layout .main-content,
   .layout.sidebar-open .main-content,
-  html.rtl .layout .main-content,
-  html.rtl .layout.sidebar-open .main-content {
-    transform: translateX(0) !important;
+  html[dir="rtl"] .layout .main-content,
+  html[dir="rtl"] .layout.sidebar-open .main-content {
+    transform: none !important;
   }
 
   .main-content {
     width: 100%;
-    margin: 0 auto !important;
-    padding: 0 15px;
+    padding: 0;
     box-sizing: border-box;
-  }
-
-  /* Ensure mobile-profile is visible */
-  .mobile-profile {
-    display: block !important;
-    margin: 20px auto 15px;
-    width: 120px;
-    height: 120px;
   }
 }
 
-/* =========================
-   PREMIUM SCROLLBAR
-========================= */
+/* =========================================
+   SCROLLBAR — WEBKIT (Chrome, Safari)
+========================================= */
 
-/* Webkit (Chrome, Safari) */
 body::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 body.dark::-webkit-scrollbar-track {
-  background: #000;
+  background: #0f172a;
   border-radius: 50px;
 }
 
@@ -118,13 +110,18 @@ body.light::-webkit-scrollbar-thumb:hover {
   background: #3399ff;
 }
 
-/* Firefox */
-body.dark {
-  scrollbar-width: thin;
-  scrollbar-color: #1e90ff #000;
-}
+/* =========================================
+   SCROLLBAR — FIREFOX
+========================================= */
 
-body.light {
-  scrollbar-width: thin;
-  scrollbar-color: #4da6ff #f2f2f2;
+body.dark  { scrollbar-width: thin; scrollbar-color: #1e90ff #0f172a; }
+body.light { scrollbar-width: thin; scrollbar-color: #4da6ff #f2f2f2; }
+/* FIX: منع أي عنصر يكسر الـ fixed positioning */
+@media (max-width: 768px) {
+.home-container,
+.layout,
+.main-content {
+  transform: none !important;
+  will-change: auto !important;
+}
 }

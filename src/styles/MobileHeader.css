@@ -1,155 +1,336 @@
-/* ===== MOBILE HEADER ===== */
+/* =========================================
+   MOBILE BOTTOM NAV — Professional
+   Fixed bottom, glassmorphism, animations
+========================================= */
 
-.mobile-header{
-
-position:fixed;
-
-top:12px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:92%;
-max-width:320px;
-
-height:55px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 16px;
-
-border-radius:18px;
-
-/* Dark mode default */
-
-background:rgba(20,30,60,0.45);
-
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,0.08);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,0.35),
-inset 0 1px 0 rgba(255,255,255,0.05);
-
-z-index:9999;
-
-transition:.3s;
-
+/* Hidden on desktop */
+.mobile-header {
+  display: none;
 }
 
-/* ===== LIGHT MODE ===== */
+/* =========================================
+   MOBILE ONLY
+========================================= */
+@media (max-width: 768px) {
 
-.light .mobile-header{
+  .mobile-header {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
 
-background:rgba(240,240,245,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-border:1px solid rgba(0,0,0,0.08);
+    width: 92%;
+    max-width: 420px;
+    height: 64px;
 
-box-shadow:
-0 10px 25px rgba(0,0,0,0.12),
-inset 0 1px 0 rgba(255,255,255,0.7);
+    padding: 0 8px;
+    border-radius: 30px;
 
-}
+    z-index: 99999;
+    isolation: isolate;
+    will-change: transform;
 
-/* ===== LOGO ===== */
+    animation: navSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
 
-.mobile-logo{
+  @keyframes navSlideUp {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(80px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
 
-font-weight:600;
-font-size:14px;
+  /* =========================================
+     DARK MODE — زجاج داكن مع glow أزرق
+  ========================================= */
+  body.dark .mobile-header {
+    background: rgba(8, 14, 40, 0.82);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.65),
+      0 0 0 0.5px rgba(255, 255, 255, 0.03) inset,
+      0 1px 0 rgba(255, 255, 255, 0.07) inset,
+      0 0 50px rgba(59, 130, 246, 0.10);
+  }
 
-color:#3b82f6;
+  /* =========================================
+     LIGHT MODE — زجاج فاتح ناعم
+  ========================================= */
+  body.light .mobile-header {
+    background: rgba(248, 250, 255, 0.92);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    box-shadow:
+      0 8px 32px rgba(37, 99, 235, 0.10),
+      0 2px 0 rgba(255, 255, 255, 1) inset,
+      0 0 40px rgba(59, 130, 246, 0.06);
+  }
 
-letter-spacing:1px;
+  /* =========================================
+     NAV ITEM
+  ========================================= */
+  .mobile-nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 
-}
+    flex: 1;
+    height: 100%;
+    min-width: 0;
 
-/* ===== ACTIONS ===== */
+    padding: 6px 4px;
+    border-radius: 22px;
 
-.mobile-actions{
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
 
-display:flex;
-gap:10px;
+    transition:
+      background 0.22s ease,
+      transform 0.18s ease;
 
-}
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
 
-/* ===== BUTTON ===== */
+  /* =========================================
+     ICON — أزرق شفاف بالديفولت
+  ========================================= */
+  .mobile-nav-item .nav-icon {
+    font-size: 19px;
+    line-height: 1;
+    transition:
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+      color 0.22s ease,
+      filter 0.22s ease;
+  }
 
-.mobile-btn{
+  body.dark .mobile-nav-item .nav-icon {
+    color: rgba(96, 165, 250, 0.48);
+  }
 
-display:flex;
-align-items:center;
-justify-content:center;
+  body.light .mobile-nav-item .nav-icon {
+    color: rgba(37, 99, 235, 0.42);
+  }
 
-width:36px;
-height:36px;
+  /* =========================================
+     LABEL — خط قوي واحترافي
+  ========================================= */
+  .mobile-nav-item .nav-label {
+    font-size: 9px;
+    font-weight: 800;
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.22s ease, opacity 0.22s ease;
+  }
 
-border-radius:10px;
+  body.dark .mobile-nav-item .nav-label {
+    color: rgba(96, 165, 250, 0.42);
+  }
 
-border:none;
+  body.light .mobile-nav-item .nav-label {
+    color: rgba(37, 99, 235, 0.40);
+  }
 
-background:rgba(59,130,246,0.1);
+  /* =========================================
+     ACTIVE DOT — نقطة زرقاء متوهجة
+  ========================================= */
+  .mobile-nav-item::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
 
-color:#60a5fa;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #3b82f6;
+    box-shadow:
+      0 0 6px rgba(59, 130, 246, 0.9),
+      0 0 14px rgba(59, 130, 246, 0.5);
 
-font-size:16px;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
 
-cursor:pointer;
+  /* =========================================
+     ACTIVE STATE — أزرق ساطع مع glow
+  ========================================= */
+  .mobile-nav-item.active .nav-icon {
+    transform: translateY(-3px) scale(1.22);
+  }
 
-transition:.25s;
+  body.dark .mobile-nav-item.active .nav-icon {
+    color: #60a5fa;
+    filter:
+      drop-shadow(0 0 6px rgba(96, 165, 250, 0.8))
+      drop-shadow(0 0 16px rgba(59, 130, 246, 0.4));
+  }
 
-}
+  body.light .mobile-nav-item.active .nav-icon {
+    color: #2563eb;
+    filter:
+      drop-shadow(0 0 5px rgba(37, 99, 235, 0.75))
+      drop-shadow(0 0 12px rgba(37, 99, 235, 0.35));
+  }
 
-/* ===== LIGHT MODE BUTTON ===== */
+  .mobile-nav-item.active::before {
+    transform: translateX(-50%) scale(1);
+  }
 
-.light .mobile-btn{
+  body.dark .mobile-nav-item.active .nav-label {
+    color: #60a5fa;
+  }
 
-background:rgba(0,0,0,0.05);
+  body.light .mobile-nav-item.active .nav-label {
+    color: #2563eb;
+  }
 
-color:#2563eb;
+  body.dark .mobile-nav-item.active {
+    background: rgba(59, 130, 246, 0.14);
+  }
+  body.light .mobile-nav-item.active {
+    background: rgba(37, 99, 235, 0.09);
+  }
 
-}
+  /* =========================================
+     HOVER — non-active
+  ========================================= */
+  .mobile-nav-item:not(.active):hover .nav-icon {
+    transform: translateY(-3px) scale(1.12);
+  }
 
-/* ===== HOVER ===== */
+  body.dark .mobile-nav-item:not(.active):hover .nav-icon {
+    color: #93c5fd;
+    filter: drop-shadow(0 0 5px rgba(147, 197, 253, 0.5));
+  }
 
-.mobile-btn:hover{
+  body.light .mobile-nav-item:not(.active):hover .nav-icon {
+    color: #3b82f6;
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.45));
+  }
 
-background:rgba(59,130,246,0.25);
+  body.dark .mobile-nav-item:not(.active):hover .nav-label {
+    color: rgba(96, 165, 250, 0.75);
+  }
 
-transform:translateY(-2px) scale(1.05);
+  body.light .mobile-nav-item:not(.active):hover .nav-label {
+    color: rgba(37, 99, 235, 0.75);
+  }
 
-box-shadow:0 0 10px rgba(59,130,246,0.4);
+  body.dark .mobile-nav-item:not(.active):hover {
+    background: rgba(59, 130, 246, 0.07);
+  }
+  body.light .mobile-nav-item:not(.active):hover {
+    background: rgba(37, 99, 235, 0.06);
+  }
 
-color:#93c5fd;
+  /* =========================================
+     TAP FEEDBACK
+  ========================================= */
+  .mobile-nav-item:active {
+    transform: scale(0.88);
+  }
 
-}
+  /* =========================================
+     RIPPLE ON TAP
+  ========================================= */
+  .mobile-nav-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(59, 130, 246, 0.18);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
 
-/* ===== CLICK ===== */
+  .mobile-nav-item:active::after {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-.mobile-btn:active{
+  /* =========================================
+     THEME TOGGLE — sun/moon spin
+  ========================================= */
+  .mobile-nav-item.mode-toggle .nav-icon {
+    transition:
+      transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+      color 0.22s ease,
+      filter 0.22s ease;
+  }
 
-transform:scale(.92);
+  .mobile-nav-item.mode-toggle:hover .nav-icon {
+    transform: rotate(25deg) scale(1.18);
+    color: #fbbf24 !important;
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.75)) !important;
+  }
 
-}
+  /* =========================================
+     LANGUAGE TOGGLE — globe spin
+  ========================================= */
+  .mobile-nav-item.lang-toggle:hover .nav-icon {
+    transform: rotate(-20deg) scale(1.15);
+    color: #34d399 !important;
+    filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.65)) !important;
+  }
 
-/* ===== RTL ===== */
+  /* =========================================
+     STAGGER ENTRANCE
+  ========================================= */
+  .mobile-nav-item:nth-child(1) { animation: itemPop 0.4s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(2) { animation: itemPop 0.4s 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(3) { animation: itemPop 0.4s 0.29s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(4) { animation: itemPop 0.4s 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(5) { animation: itemPop 0.4s 0.43s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(6) { animation: itemPop 0.4s 0.50s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+  .mobile-nav-item:nth-child(7) { animation: itemPop 0.4s 0.57s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 
-.mobile-header.rtl{
+  @keyframes itemPop {
+    from { opacity: 0; transform: scale(0.6) translateY(10px); }
+    to   { opacity: 1; transform: scale(1)   translateY(0); }
+  }
 
-direction:rtl;
+  /* =========================================
+     RTL
+  ========================================= */
+  html[dir="rtl"] .mobile-header {
+    direction: rtl;
+  }
 
-}
+  /* =========================================
+     SAFE AREA — iPhone notch / home bar
+  ========================================= */
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .mobile-header {
+      bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+  }
 
-/* ===== MOBILE ONLY ===== */
-
-@media(min-width:768px){
-
-.mobile-header{
-display:none;
-}
-
+  /* =========================================
+     BODY PADDING — prevents content overlap
+  ========================================= */
+  body {
+    padding-bottom: 96px;
+  }
 }
