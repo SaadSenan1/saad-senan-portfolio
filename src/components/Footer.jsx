@@ -60,7 +60,7 @@ const Footer = () => {
             <a href="https://github.com/saadsenan1"><FaGithub/></a>
             <a href="https://www.linkedin.com/in/saad-senan-a34557374/overlay/1759267629857/single-media-viewer/?profileId=ACoAAFyhRggB8Iee_m2hhthp0CzQQHQbC-fsokI"><FaLinkedin/></a>
            
-            <a href="mailto:bogamer2006@gmail.com"><FaEnvelope/></a>
+            <a href="mailto:saadsinan06@hotmail.com"><FaEnvelope/></a>
 
           </div>
 
