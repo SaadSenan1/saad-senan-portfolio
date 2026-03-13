@@ -134,8 +134,11 @@ const Home = () => {
               <a href="https://www.linkedin.com/in/saad-senan-a34557374/overlay/1759267629857/single-media-viewer/?profileId=ACoAAFyhRggB8Iee_m2hhthp0CzQQHQbC-fsokI" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin />
               </a>
-              <a href="mailto:bogamer2006@gmail.com">
+              <a href="mailto:saadsinan06@hotmail.com">
                 <FaEnvelope />
+              </a>
+              <a href="https://wa.me/+963980562304" target="_blank" rel="noopener noreferrer">
+<FaWhatsapp />
               </a>
             </div>
           </div>
@@ -490,7 +493,7 @@ const Home = () => {
         <a href="#" className="btn-demo">
           <FaArrowRight /> {isArabic ? "عرض المشروع" : "Live Demo"}
         </a>
-        <a href="#" className="btn-code">
+        <a href="https://github.com/SaadSenan1/saad-senan-portfolio" target="_blank"className="btn-code">
           <FaGithub /> {isArabic ? "الكود" : "Code"}
         </a>
       </div>
@@ -625,12 +628,12 @@ const Home = () => {
 
     <div className="contact-links">
 
-      <a href="mailto:bogamer2006@gmail.com" className="contact-card">
+      <a href="mailto:saadsinan06@hotmail.com" className="contact-card">
         <FaEnvelope/>
         <span>Email</span>
       </a>
 
-      <a href="https://wa.me/0980562304" className="contact-card">
+      <a href="https://wa.me/+963980562304" className="contact-card">
         <FaWhatsapp/>
         <span>WhatsApp</span>
       </a>
